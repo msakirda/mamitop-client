@@ -1,24 +1,26 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+document.addEventListener('DOMContentLoaded', () => {
+  const addbutton = document.getElementById('add-button')
+  if (addbutton !== null) {
+    addbutton.onclick = function () {
+        console.log('ok!')
+    }
+ }
+  //le clic sur le bouton "Add"
+  addbutton?.addEventListener('click', () => {
+    //le clic sur le bouton "Add"
+    const nameInput= document.querySelector('#input-name') as HTMLInputElement;
+    const imageUrlInput = document.querySelector('#input-lienimage')as HTMLInputElement;
+    const durationInput = document.querySelector('#input-duree')as HTMLInputElement;
+    const noteSelect = document.querySelector('#input-note')as HTMLInputElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    // Récupérez les valeurs ecrites
+    const name = nameInput.value;
+    const imageUrl = imageUrlInput.value;
+    const duration = durationInput.value;
+    const note = noteSelect.value;
+    
+    console.log(`Nom: ${name}, Image URL: ${imageUrl}, Durée: ${duration}, Note: ${note}`);
+  });
+});

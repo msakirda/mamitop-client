@@ -4,10 +4,39 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>MARMITOP</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <h1>MARMITOP</h1>
+    <div class="container">
+      <div class="input-group">
+          <h4>Nom</h4>
+          <input type="text" id= "input-name" class="task-input" placeholder="Enter name...">
+          <h4>Lien image</h4>
+          <input type="text" id="input-lienimage" class="task-input" placeholder="Enter image url...">
+      </div>
+      <div class="input-group">
+          <h4>Durée</h4>
+          <input type="text" id="input-duree" class="task-input" placeholder="Enter durée recette...">
+          <h4 for="note-select">Note</h4> 
+          <select name="note" id="input-note" class="task-input">
+              <option value="">Quel note vous metteriez à votre recette ?</option>
+              <option >1</option>
+              <option >2</option>
+              <option >3</option>
+              <option >4</option>
+              <option >5</option>
+              <option >6</option>
+              <option >7</option>
+              <option >8</option>
+              <option >9</option>
+              <option >10</option>
+          </select>
+      </div>
+      <button id="add-button">Add</button>
+      </div>
+      <h2>Mes recettes</h2>
   </body>
 </html>
