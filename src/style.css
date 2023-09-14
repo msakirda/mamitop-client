@@ -1,6 +1,5 @@
 
 html{
-  height: 100%;
   margin: auto;
 }
 body{
@@ -76,28 +75,31 @@ h2{
   justify-content: space-between;
 }
 
-/* Style CSS pour l'image */
 .recette img {
-  width: 100%;
-  height: auto;
+  width: 105%;
+  height: 150px;
 }
 
-/* Style CSS pour le nom de la recette */
+.paramettre {
+  width: 50%;
+}
+
+
 .nom-recette {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* Style CSS pour la durée de la recette */
 .duree {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: bold;
   color: #888888;
 }
 
-/* Style CSS pour la note de la recette */
 .note {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: bold;
   color: #ff6600;
   font-weight: bold;
 }
