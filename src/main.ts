@@ -1,3 +1,10 @@
+interface IRecette {
+  lienimage: string,
+  nom: string,
+  duree: number,
+  note: number,
+}
+
 const addbutton = document.getElementById('add-button')
 if (addbutton !== null) {
   addbutton.onclick = function () {
@@ -15,45 +22,60 @@ addbutton?.addEventListener('click', async () => {
   // Récupérez les valeurs ecrites
   const name = nameInput.value;
   const imageUrl = imageUrlInput.value;
-  const duration = durationInput.value;
-  const note = noteSelect.value;
+  const duration = parseInt(durationInput.value);
+  const note = parseInt(noteSelect.value);
   
   console.log(`Nom: ${name}, Image URL: ${imageUrl}, Durée: ${duration}, Note: ${note}`);
 
-  const response = await fetch('http://localhost:3000/ajout-recette/' + name)
-  const value = await response.text()
-  const recetteAjoutee = JSON.parse(value)
+  const response = await fetch("http://localhost:3000/recettes", {
+    headers: new Headers({
+      "Content-Type": "application/json",
+    }),
+    method: "POST",
+    body: JSON.stringify({
+      nom: name,
+      duree: duration,
+      url: imageUrl,
+      note: note
+    }),
+  })
+  console.log(response)
+  const recetteAjoutee = await response.json()
 
   console.log('recette', recetteAjoutee)
+  afficherRecette(recetteAjoutee)
+});
 
+
+
+async function init(){
+  const response = await fetch('http://localhost:3000/recettes')
+  const recettes = await response.json()
+  console.log('recettes', recettes);
+  recettes.forEach( (recette: IRecette) => {
+    afficherRecette(recette)    
+  });
+  
+} 
+
+init()
+
+function afficherRecette(recette: IRecette){
+  console.log('tata', recette)
   const nouvelleRecetteDom = document.createElement('div')
   nouvelleRecetteDom.classList.add('recette')
   nouvelleRecetteDom.innerHTML = `
   <div>
-    <img src="tarte au thon.jpg" alt="Nom de la recette">
+    <img src=${recette.lienimage} alt="Nom de la recette">
   </div>
   <div class ="paramettre">
-    <div class="nom-recette">${recetteAjoutee.nom}</div>
-    <div class="duree">Durée : 30 minutes</div>
-    <div class="note">Note : 4/10</div>
+    <div class="nom-recette">${recette.nom}</div>
+    <div class="duree">Durée : ${recette.duree} minutes</div>
+    <div class="note">Note : ${recette.note}/10</div>
   </div>
   `
 
   const list = document.querySelector('.recettes-liste') as HTMLDivElement
   
   list.appendChild(nouvelleRecetteDom)
-
-});
-
-
-
-async function init(){
-  const response = await fetch('http://localhost:3000/findall')
-  const value = await response.text()
-  const recettes = JSON.parse(value)
-  console.log('recettes', recettes);
-  
-  
-} 
-
-init()
+}
