@@ -1,8 +1,9 @@
-interface IRecette {
-  lienimage: string,
-  nom: string,
-  duree: number,
-  note: number,
+// Définition d'une interface pour décrire la structure d'une recette
+interface IRecette { 
+  lienimage: string, // Lien vers l'image de la recette
+  nom: string, // Nom de la recette
+  duree: number, // Durée de préparation en minutes
+  note: number, // Note de la recette sur 10
 }
 
 const addbutton = document.getElementById('add-button')
