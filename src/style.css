@@ -1,105 +1,152 @@
 
-html{
-  margin: auto;
-}
-body{
-flex-direction: column;
-height: 100%;
-}
-.container {
-  max-width: 600px;
-  margin: 0 auto; 
-  padding: 20px;
-  background-color: white;
-  border: 1px solid black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-h1{
-  text-align: center;
-}
-
-.input-group {
-  width: 48%;
-  margin-bottom: 10px;
-}
-
-.task-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+html {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+
+
+.input-group {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; 
+  margin-right: 20px;
+}
+
+
+h4 {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+  text-align: left; 
+}
+
+
+.task-input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
 
 #add-button {
   width: 100%;
   padding: 10px;
-  background-color: gray;
-  color: white;
+  background-color: #333;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #add-button:hover {
-  background-color: #0056b3;
+  background-color: #555;
 }
 
-h4{
-  margin-block-end: 0%;
-  font-weight:normal;
-}
-
-h2{
-  margin-block-end: 0%;
-  font-weight:normal;
-  margin: 30px;
-  margin-left: 335px;
-}
 
 .recette {
-  max-width: 600px;
-  max-height: 650px;
-  margin: 0 auto; 
-  padding: 20px;
-  background-color: white;
-  border: 1px solid black;
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 .recette img {
-  width: 105%;
-  height: 150px;
+  max-width: 100%;
+  height: auto;
 }
 
+
 .paramettre {
-  width: 50%;
+  width: 100%;
+  margin-top: 10px;
+  text-align: right;
+  
 }
 
 
 .nom-recette {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  margin-top: 10px;
+  color: #333;
 }
 
+
 .duree {
-  font-size: 18px;
-  font-weight: bold;
-  color: #888888;
+  font-size: 16px;
+  color: #888;
 }
 
 .note {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
   color: #ff6600;
   font-weight: bold;
+}
+
+#input-comment {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  text-align: left;
+  display: block;
+  margin-right: 10px;
+}
+
+h4 {
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
 }

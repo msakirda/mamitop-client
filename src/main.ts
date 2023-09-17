@@ -4,6 +4,7 @@ interface IRecette {
   nom: string, // Nom de la recette
   duree: number, // Durée de préparation en minutes
   note: number, // Note de la recette sur 10
+  comment: string,
 }
 
 const addbutton = document.getElementById('add-button')
@@ -19,14 +20,16 @@ addbutton?.addEventListener('click', async () => {
   const imageUrlInput = document.querySelector('#input-lienimage')as HTMLInputElement;
   const durationInput = document.querySelector('#input-duree')as HTMLInputElement;
   const noteSelect = document.querySelector('#input-note')as HTMLInputElement;
+  const commentInput = document.querySelector('#input-comment')as HTMLInputElement;
 
   // Récupérez les valeurs ecrites
   const name = nameInput.value;
   const imageUrl = imageUrlInput.value;
   const duration = parseInt(durationInput.value);
   const note = parseInt(noteSelect.value);
+  const comment = commentInput.value;
   
-  console.log(`Nom: ${name}, Image URL: ${imageUrl}, Durée: ${duration}, Note: ${note}`);
+  console.log(`Nom: ${name}, Image URL: ${imageUrl}, Durée: ${duration}, Note: ${note}, Comment: ${comment}`);
 
   const response = await fetch("http://localhost:3000/recettes", {
     headers: new Headers({
@@ -37,7 +40,8 @@ addbutton?.addEventListener('click', async () => {
       nom: name,
       duree: duration,
       url: imageUrl,
-      note: note
+      note: note,
+      comment: comment,
     }),
   })
   console.log(response)
@@ -73,6 +77,9 @@ function afficherRecette(recette: IRecette){
     <div class="nom-recette">${recette.nom}</div>
     <div class="duree">Durée : ${recette.duree} minutes</div>
     <div class="note">Note : ${recette.note}/10</div>
+  </div>
+  <div>
+  <div class="comment-recette">${recette.comment}</div>
   </div>
   `
 
